@@ -17,40 +17,61 @@ using namespace std;
 class Solution
 {
 public:
-
-    void bfs(vector<vector<int>> &graph, vector<int>& distance, int source){
+    void bfs(vector<vector<int>> &graph, vector<int> &distance, int source)
+    {
 
         queue<int> q;
 
         q.push(source);
 
-        while(!q.empty()){
-            
+        while (!q.empty())
+        {
+
             int index = q.front();
             q.pop();
 
-            for(int i = 0 ; i < graph[index].size() ; i++){
-                
+            for (int i = 0; i < graph[index].size(); i++)
+            {
+                int neigh = graph[index][i];
+
+                if (distance[neigh] > distance[index] + 1)
+                {
+
+                    distance[neigh] = distance[index] + 1;
+
+                    q.push(neigh);
+                }
             }
         }
     }
 
     vector<int> shortestPath(vector<vector<int>> &edges, int N, int M)
     {
-        vector<int> distance(N,INT_MAX);
+        vector<int> distance(N, INT_MAX);
 
         vector<vector<int>> graph(N); // Adjacency List
 
-        for(int i = 0 ; i < M ; i++){
+        for (int i = 0; i < M; i++)
+        {
             int r = edges[i][0];
             int c = edges[i][1];
 
-            graph[r].push_back(c);
+            graph[r].push_back(c); // Undirected
+            graph[c].push_back(r); // Graph
         }
 
         distance[0] = 0;
 
-        bfs(graph,distance,0);
+        bfs(graph, distance, 0);
+
+        for (int i = 0; i < distance.size(); i++)
+        {
+
+            if (distance[i] == INT_MAX)
+            {
+                distance[i] = -1;
+            }
+        }
 
         return distance;
     }
