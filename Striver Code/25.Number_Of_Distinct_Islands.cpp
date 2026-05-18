@@ -16,9 +16,8 @@ class Solution {
     vector<pair<int,int>>& arr,int row, int col){
         
         visited[row][col] = 1;
-        
-        
         arr.push_back({row,col});
+        
         
         int r[] = {0,-1,0,1};
         int c[] = {-1,0,1,0};
