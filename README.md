@@ -33,8 +33,7 @@ DSA-Codes/
 ## 💻 Languages Used
 
 * C++
-* Python
-* SQL
+* C
 
 ---
 
