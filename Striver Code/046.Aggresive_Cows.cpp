@@ -1,3 +1,11 @@
+// Given an array nums of size n, which denotes the positions of stalls, and an integer k, which denotes the number of aggressive cows, assign stalls to k cows such that the minimum distance between any two cows is the maximum possible. Find the maximum possible minimum distance.
+
+// Input: n = 6, k = 4, nums = [0, 3, 4, 7, 10, 9]
+// Output: 3
+// Explanation:
+// The maximum possible minimum distance between any two cows will be 3 when 4 cows are placed at positions [0, 3, 7, 10]. Here the distances between cows are 3, 4, and 3 respectively.
+// In no manner can we increase the minimum distance beyond 3
+
 #include <iostream>
 #include <queue>
 #include <vector>
